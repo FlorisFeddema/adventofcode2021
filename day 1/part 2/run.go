@@ -15,7 +15,7 @@ func main() {
 		panic(err)
 	}
 
-	data := string(buf)
+	data := strings.TrimSpace(string(buf))
 	data = strings.ReplaceAll(data, "\n", ",")
 
 	list := strings.Split(data, ",")

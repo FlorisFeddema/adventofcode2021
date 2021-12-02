@@ -20,22 +20,27 @@ func main() {
 
 	list := strings.Split(data, ",")
 
-	input := []int{}
+	postition := 0
+	aim := 0
+	depth := 0
 
 	for _, e := range list {
-		i, _ := strconv.Atoi(e)
-		input = append(input, i)
+		value, _ := strconv.Atoi(strings.Split(e, " ")[1])
+
+		if strings.Contains(e, "forward") {
+			postition += value
+
+			depth += value * aim
+		}
+		if strings.Contains(e, "down") {
+			aim += value
+		}
+		if strings.Contains(e, "up") {
+			aim -= value
+		}
 	}
 
-	for i := range input {
-		if i == 0 {
-			continue
-		}
-
-		if input[i] > input[i-1] {
-			result++
-		}
-	}
+	result = depth * postition
 
 	fmt.Printf("Result: %[1]d", result)
 }
