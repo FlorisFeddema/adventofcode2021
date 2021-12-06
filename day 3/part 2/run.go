@@ -99,5 +99,5 @@ func main() {
 
 	result = int(co2Value) * int(oxigenValue)
 
-	fmt.Printf("Result: %[1]d", result)
+	fmt.Printf("Result: %[1]d\n", result)
 }

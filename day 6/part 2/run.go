@@ -20,21 +20,31 @@ func main() {
 
 	list := strings.Split(data, ",")
 
-	input := []int{}
+	fish := [9]int{}
 
 	for _, e := range list {
-		i, _ := strconv.Atoi(e)
-		input = append(input, i)
+		value, _ := strconv.Atoi(e)
+		fish[value]++
 	}
 
-	for i := range input {
-		if i == 0 {
-			continue
-		}
+	fmt.Println(fish)
 
-		if input[i] > input[i-1] {
-			result++
+	for i := 0; i < 256; i++ {
+		nFish := [9]int{}
+		for i, e := range fish {
+			if i == 0 {
+				nFish[6] += e
+				nFish[8] += e
+			} else {
+				nFish[i-1] += e
+			}
 		}
+		fish = nFish
+		fmt.Println(fish)
+	}
+
+	for _, e := range fish {
+		result += e
 	}
 
 	fmt.Printf("Result: %[1]d\n", result)

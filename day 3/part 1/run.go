@@ -55,5 +55,5 @@ func main() {
 
 	result = gamma * epsilon
 
-	fmt.Printf("Result: %[1]d", result)
+	fmt.Printf("Result: %[1]d\n", result)
 }
