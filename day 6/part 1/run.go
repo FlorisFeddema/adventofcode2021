@@ -26,9 +26,6 @@ func main() {
 		value, _ := strconv.Atoi(e)
 		fish[value]++
 	}
-
-	fmt.Println(fish)
-
 	for i := 0; i < 80; i++ {
 		nFish := [9]int{}
 		for i, e := range fish {
@@ -40,7 +37,6 @@ func main() {
 			}
 		}
 		fish = nFish
-		fmt.Println(fish)
 	}
 
 	for _, e := range fish {
